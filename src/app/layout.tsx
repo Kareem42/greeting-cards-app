@@ -1,15 +1,14 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import PageWrapper from "@/components/PageWrapper";
-import { Playfair_Display } from "next/font/google";
+import Navbar from "@/components/Navbar";
 
+const inter = Inter({ subsets: ["latin"] });
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["700"],
   style: ["italic"],
 });
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -22,21 +21,10 @@ export default function RootLayout({
         <header className="bg-black shadow">
           <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between">
             <h1 className={playfair.className}>Reflections of Me</h1>
-            <nav className="flex gap-4">
-              <a href="/home" className="hover:underline">
-                Home
-              </a>
-              <a href="/products" className="hover:underline">
-                Products
-              </a>
-              <a href="/builder" className="hover:underline">
-                Builder
-              </a>
-            </nav>
+            <Navbar />
           </div>
         </header>
 
-        {/* Wrap your children here */}
         <main className="max-w-7xl mx-auto px-4 py-8">
           <PageWrapper>{children}</PageWrapper>
         </main>
